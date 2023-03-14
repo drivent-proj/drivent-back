@@ -42,17 +42,18 @@ model Event {
 }
 
 model Enrollment {
-  id        Int       @id @default(autoincrement())
-  name      String    @db.VarChar(255)
-  cpf       String    @db.VarChar(255)
-  birthday  DateTime
-  phone     String    @db.VarChar(255)
-  userId    Int       @unique
-  User      User      @relation(fields: [userId], references: [id])
-  Address   Address[]
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  Ticket    Ticket[]
+  id                Int       @id @default(autoincrement())
+  name              String    @db.VarChar(255)
+  cpf               String    @db.VarChar(255)
+  birthday          DateTime
+  phone             String    @db.VarChar(255)
+  userId            Int       @unique
+  User              User      @relation(fields: [userId], references: [id])
+  Address           Address[]
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  Ticket            Ticket[]
+  SubscribeActivity SubscribeActivity[]
 }
 
 model Address {
@@ -137,4 +138,39 @@ model Booking {
   roomId    Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Local {
+  id          Int      @id @default(autoincrement())
+  name        String
+  Activities  Activity[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+
+model Activity {
+  id              Int      @id @default(autoincrement())
+  name            String
+  date            DateTime
+  startHour       DateTime
+  endHour         DateTime
+  capacity        Int
+  Local           Local    @relation(fields: [localId], references: [id])
+  localId         Int
+  SubscribeActivity SubscribeActivity[]
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([date])
+}
+
+model SubscribeActivity {
+  id            Int      @id @default(autoincrement())
+  Activity        Activity     @relation(fields: [activityId], references: [id])
+  activityId      Int
+  Enrollment    Enrollment     @relation(fields: [enrollmentId], references: [id])
+  enrollmentId  Int
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }

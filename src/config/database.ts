@@ -7,13 +7,13 @@ export function connectDb(): void {
 }
 
 export const redis = createClient({
-  url: process.env.REDIS_URL
+  url: process.env.REDIS_URL,
 });
 
 export async function connectRedis() {
-  redis.on('error', err => console.log('Redis Client Error', err));
+  redis.on("error", (err) => console.log("Redis Client Error", err));
   await redis.connect();
-};
+}
 
 export async function disconnectDB(): Promise<void> {
   await prisma?.$disconnect();
