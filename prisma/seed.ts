@@ -13,6 +13,9 @@ async function main() {
   let ticketType = await prisma.ticketType.findFirst();
   let hotel = await prisma.hotel.findFirst();
   let room = await prisma.room.findFirst();
+  let local = await prisma.local.findFirst();
+  let activity = await prisma.activity.findFirst();
+
   if (event) {
     redis.set("event", JSON.stringify(event));
   } else {
@@ -127,6 +130,75 @@ async function main() {
         { name: "301", capacity: 3, hotelId: 1 },
       ],
     });
+  }
+  if (!local) {
+    await prisma.local.createMany({
+      data: [
+        {
+          "id":1,
+          "name":"Auditório Principal"
+        },
+        {
+          "id":2,
+          "name":"Auditório Lateral"
+        },
+        {
+          "id":3,
+          "name":"Sala de Workshop"
+        },
+      ],
+    });
+  }
+  if(!activity) {
+    await prisma.activity.createMany({
+      data: [
+        {
+          "id":1,
+          "name":"Minecraft: montando o PC ideal",
+          "date":new Date("2023-10-22 15:32:45.999"),
+          "startHour":new Date("2023-10-22 09:00:00"),
+          "endHour":new Date("2023-10-22 10:00:00"),
+          "capacity":27,
+          "localId":1
+        },
+        {
+          "id":2,
+          "name":"LoL: montando o PC ideal",
+          "date": new Date("2023-10-22 15:32:45.999"),
+          "startHour":new Date("2023-10-22 10:00:00"),
+          "endHour":new Date("2023-10-22 11:00:00"),
+          "capacity":3,
+          "localId":1
+        },
+        {
+          "id":3,
+          "name":"Palestra x",
+          "date":new Date("2023-10-23 15:32:45.999"),
+          "startHour":new Date("2023-10-23 09:00:00"),
+          "endHour":new Date("2023-10-23 11:00:00"),
+          "capacity":27,
+          "localId":2
+        },
+        {
+          "id":4,
+          "name":"Palestra y",
+          "date":new Date("2023-10-24 15:32:45.999"),
+          "startHour":new Date("2023-10-24 09:00:00"),
+          "endHour":new Date("2023-10-24 10:00:00"),
+          "capacity":27,
+          "localId":3
+        },
+        {
+          "id":5,
+          "name":"Palestra z",
+          "date":new Date("2023-10-24 15:32:45.999"),
+          "startHour":new Date("2023-10-24 10:00:00"),
+          "endHour":new Date("2023-10-24 11:00:00"),
+          "capacity":3,
+          "localId":3
+        },
+      ]
+    })
   }
 
   console.log({ event });
