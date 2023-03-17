@@ -13,6 +13,9 @@ async function main() {
   let ticketType = await prisma.ticketType.findFirst();
   let hotel = await prisma.hotel.findFirst();
   let room = await prisma.room.findFirst();
+  let local = await prisma.local.findFirst();
+  let activity = await prisma.activity.findFirst();
+
   if (event) {
     redis.set("event", JSON.stringify(event));
   } else {
@@ -78,55 +81,124 @@ async function main() {
     await prisma.room.createMany({
       data: [
         { name: "101", capacity: 1, hotelId: 2 },
-        { name: "101", capacity: 1, hotelId: 2 },
-        { name: "101", capacity: 1, hotelId: 2 },
-        { name: "101", capacity: 1, hotelId: 2 },
-        { name: "101", capacity: 1, hotelId: 2 },
-        { name: "101", capacity: 1, hotelId: 2 },
-        { name: "101", capacity: 1, hotelId: 2 },
-        { name: "101", capacity: 1, hotelId: 2 },
+        { name: "102", capacity: 1, hotelId: 2 },
+        { name: "103", capacity: 1, hotelId: 2 },
+        { name: "104", capacity: 1, hotelId: 2 },
+        { name: "105", capacity: 1, hotelId: 2 },
+        { name: "106", capacity: 1, hotelId: 2 },
+        { name: "107", capacity: 1, hotelId: 2 },
+        { name: "108", capacity: 1, hotelId: 2 },
         { name: "201", capacity: 2, hotelId: 2 },
-        { name: "201", capacity: 2, hotelId: 2 },
-        { name: "201", capacity: 2, hotelId: 2 },
-        { name: "201", capacity: 2, hotelId: 2 },
-        { name: "201", capacity: 2, hotelId: 2 },
-        { name: "201", capacity: 2, hotelId: 2 },
-        { name: "201", capacity: 2, hotelId: 2 },
-        { name: "201", capacity: 2, hotelId: 2 },
+        { name: "202", capacity: 2, hotelId: 2 },
+        { name: "203", capacity: 2, hotelId: 2 },
+        { name: "204", capacity: 2, hotelId: 2 },
+        { name: "205", capacity: 2, hotelId: 2 },
+        { name: "206", capacity: 2, hotelId: 2 },
+        { name: "207", capacity: 2, hotelId: 2 },
+        { name: "208", capacity: 2, hotelId: 2 },
         { name: "101", capacity: 1, hotelId: 3 },
-        { name: "101", capacity: 1, hotelId: 3 },
-        { name: "101", capacity: 1, hotelId: 3 },
-        { name: "101", capacity: 1, hotelId: 3 },
-        { name: "101", capacity: 1, hotelId: 3 },
-        { name: "101", capacity: 1, hotelId: 3 },
-        { name: "101", capacity: 1, hotelId: 3 },
-        { name: "101", capacity: 1, hotelId: 3 },
+        { name: "102", capacity: 1, hotelId: 3 },
+        { name: "103", capacity: 1, hotelId: 3 },
+        { name: "104", capacity: 1, hotelId: 3 },
+        { name: "105", capacity: 1, hotelId: 3 },
+        { name: "106", capacity: 1, hotelId: 3 },
+        { name: "107", capacity: 1, hotelId: 3 },
+        { name: "108", capacity: 1, hotelId: 3 },
         { name: "201", capacity: 1, hotelId: 3 },
-        { name: "201", capacity: 1, hotelId: 3 },
-        { name: "201", capacity: 1, hotelId: 3 },
-        { name: "201", capacity: 1, hotelId: 3 },
-        { name: "201", capacity: 1, hotelId: 3 },
-        { name: "201", capacity: 1, hotelId: 3 },
-        { name: "201", capacity: 1, hotelId: 3 },
-        { name: "201", capacity: 1, hotelId: 3 },
+        { name: "202", capacity: 1, hotelId: 3 },
+        { name: "203", capacity: 1, hotelId: 3 },
+        { name: "204", capacity: 1, hotelId: 3 },
+        { name: "205", capacity: 1, hotelId: 3 },
+        { name: "206", capacity: 1, hotelId: 3 },
+        { name: "207", capacity: 1, hotelId: 3 },
+        { name: "208", capacity: 1, hotelId: 3 },
         { name: "101", capacity: 1, hotelId: 1 },
-        { name: "101", capacity: 1, hotelId: 1 },
-        { name: "101", capacity: 1, hotelId: 1 },
-        { name: "101", capacity: 1, hotelId: 1 },
-        { name: "101", capacity: 1, hotelId: 1 },
-        { name: "101", capacity: 1, hotelId: 1 },
+        { name: "102", capacity: 1, hotelId: 1 },
+        { name: "103", capacity: 1, hotelId: 1 },
+        { name: "104", capacity: 1, hotelId: 1 },
+        { name: "105", capacity: 1, hotelId: 1 },
+        { name: "106", capacity: 1, hotelId: 1 },
         { name: "201", capacity: 2, hotelId: 1 },
-        { name: "201", capacity: 2, hotelId: 1 },
-        { name: "201", capacity: 2, hotelId: 1 },
-        { name: "201", capacity: 2, hotelId: 1 },
-        { name: "201", capacity: 2, hotelId: 1 },
-        { name: "201", capacity: 2, hotelId: 1 },
+        { name: "202", capacity: 2, hotelId: 1 },
+        { name: "203", capacity: 2, hotelId: 1 },
+        { name: "204", capacity: 2, hotelId: 1 },
+        { name: "205", capacity: 2, hotelId: 1 },
+        { name: "206", capacity: 2, hotelId: 1 },
         { name: "301", capacity: 3, hotelId: 1 },
-        { name: "301", capacity: 3, hotelId: 1 },
-        { name: "301", capacity: 3, hotelId: 1 },
-        { name: "301", capacity: 3, hotelId: 1 },
+        { name: "302", capacity: 3, hotelId: 1 },
+        { name: "303", capacity: 3, hotelId: 1 },
+        { name: "304", capacity: 3, hotelId: 1 },
       ],
     });
+  }
+  if (!local) {
+    await prisma.local.createMany({
+      data: [
+        {
+          "id":1,
+          "name":"Auditório Principal"
+        },
+        {
+          "id":2,
+          "name":"Auditório Lateral"
+        },
+        {
+          "id":3,
+          "name":"Sala de Workshop"
+        },
+      ],
+    });
+  }
+  if(!activity) {
+    await prisma.activity.createMany({
+      data: [
+        {
+          "id":1,
+          "name":"Minecraft: montando o PC ideal",
+          "date":new Date("2023-10-22 15:32:45.999"),
+          "startHour":new Date("2023-10-22 09:00:00"),
+          "endHour":new Date("2023-10-22 10:00:00"),
+          "capacity":27,
+          "localId":1
+        },
+        {
+          "id":2,
+          "name":"LoL: montando o PC ideal",
+          "date": new Date("2023-10-22 15:32:45.999"),
+          "startHour":new Date("2023-10-22 10:00:00"),
+          "endHour":new Date("2023-10-22 11:00:00"),
+          "capacity":3,
+          "localId":1
+        },
+        {
+          "id":3,
+          "name":"Palestra x",
+          "date":new Date("2023-10-23 15:32:45.999"),
+          "startHour":new Date("2023-10-23 09:00:00"),
+          "endHour":new Date("2023-10-23 11:00:00"),
+          "capacity":27,
+          "localId":2
+        },
+        {
+          "id":4,
+          "name":"Palestra y",
+          "date":new Date("2023-10-24 15:32:45.999"),
+          "startHour":new Date("2023-10-24 09:00:00"),
+          "endHour":new Date("2023-10-24 10:00:00"),
+          "capacity":27,
+          "localId":3
+        },
+        {
+          "id":5,
+          "name":"Palestra z",
+          "date":new Date("2023-10-24 15:32:45.999"),
+          "startHour":new Date("2023-10-24 10:00:00"),
+          "endHour":new Date("2023-10-24 11:00:00"),
+          "capacity":3,
+          "localId":3
+        },
+      ]
+    })
   }
 
   console.log({ event });

@@ -12,7 +12,7 @@ async function getActivities() {
 
 function groupByDate(arr: ActivityWithLocalAndSubscribes[]) {
   const result = arr.reduce((acc: ActivityGroupByDate, obj: ActivityWithLocalAndSubscribes) => {
-    const fullDate = obj.date.toLocaleDateString().split("/");
+    const fullDate = obj.date.toLocaleDateString("pt-BR").split("/");
     const dayMonth = fullDate[0] + "/" + fullDate[1];
     const day = obj.date.getDay();
 
