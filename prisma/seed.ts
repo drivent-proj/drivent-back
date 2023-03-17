@@ -156,8 +156,8 @@ async function main() {
           "id":1,
           "name":"Minecraft: montando o PC ideal",
           "date":new Date("2023-10-22 15:32:45.999"),
-          "startHour":new Date("2023-10-22 09:00:00"),
-          "endHour":new Date("2023-10-22 10:00:00"),
+          "startHour":"2023-10-22T09:00:00.000Z",
+          "endHour":"2023-10-22T10:00:00.000Z",
           "capacity":27,
           "localId":1
         },
@@ -165,36 +165,135 @@ async function main() {
           "id":2,
           "name":"LoL: montando o PC ideal",
           "date": new Date("2023-10-22 15:32:45.999"),
-          "startHour":new Date("2023-10-22 10:00:00"),
-          "endHour":new Date("2023-10-22 11:00:00"),
+          "startHour":"2023-10-22T10:00:00.000Z",
+          "endHour":"2023-10-22T11:00:00.000Z",
           "capacity":3,
           "localId":1
         },
         {
           "id":3,
-          "name":"Palestra x",
+          "name":"Valorant: montando o PC ideal",
+          "date": new Date("2023-10-22 15:32:45.999"),
+          "startHour":"2023-10-22T11:00:00.000Z",
+          "endHour":"2023-10-22T13:00:00.000Z",
+          "capacity":3,
+          "localId":1
+        },
+        {
+          "id":4,
+          "name":"Tíbia: montando o PC ideal",
+          "date": new Date("2023-10-22 15:32:45.999"),
+          "startHour":"2023-10-22T13:00:00.000Z",
+          "endHour":"2023-10-22T18:00:00.000Z",
+          "capacity":30,
+          "localId":1
+        },
+        {
+          "id":5,
+          "name":"FIFA: A arte do jogo",
+          "date": new Date("2023-10-22 15:32:45.999"),
+          "startHour":"2023-10-22T09:00:00.000Z",
+          "endHour":"2023-10-22T12:00:00.000Z",
+          "capacity":30,
+          "localId":2
+        },
+        {
+          "id":6,
+          "name":"Palco Aberto",
+          "date": new Date("2023-10-22 15:32:45.999"),
+          "startHour":"2023-10-22T09:00:00.000Z",
+          "endHour":"2023-10-22T12:00:00.000Z",
+          "capacity":30,
+          "localId":3
+        },
+        {
+          "id":7,
+          "name":"Stand Up Commedy: a arte do improviso",
+          "date": new Date("2023-10-22 15:32:45.999"),
+          "startHour":"2023-10-22T12:00:00.000Z",
+          "endHour":"2023-10-22T16:00:00.000Z",
+          "capacity":30,
+          "localId":3
+        },
+        {
+          "id":8,
+          "name":"Palestra com Tite",
           "date":new Date("2023-10-23 15:32:45.999"),
-          "startHour":new Date("2023-10-23 09:00:00"),
-          "endHour":new Date("2023-10-23 11:00:00"),
+          "startHour": "2023-10-23T09:00:00.000Z",
+          "endHour": "2023-10-23T12:00:00.000Z",
+          "capacity":27,
+          "localId":1
+        },
+        {
+          "id":9,
+          "name":"Palestra com João Pavão",
+          "date":new Date("2023-10-23 15:32:45.999"),
+          "startHour": "2023-10-23T09:00:00.000Z",
+          "endHour": "2023-10-23T11:00:00.000Z",
           "capacity":27,
           "localId":2
         },
         {
-          "id":4,
-          "name":"Palestra y",
-          "date":new Date("2023-10-24 15:32:45.999"),
-          "startHour":new Date("2023-10-24 09:00:00"),
-          "endHour":new Date("2023-10-24 10:00:00"),
+          "id":10,
+          "name":"Liderança: Métodos Aplicáveis",
+          "date":new Date("2023-10-23 15:32:45.999"),
+          "startHour": "2023-10-23T09:00:00.000Z",
+          "endHour": "2023-10-23T14:00:00.000Z",
           "capacity":27,
           "localId":3
         },
         {
-          "id":5,
-          "name":"Palestra z",
+          "id":11,
+          "name":"Minecraft: como não morrer no modo hardcore",
           "date":new Date("2023-10-24 15:32:45.999"),
-          "startHour":new Date("2023-10-24 10:00:00"),
-          "endHour":new Date("2023-10-24 11:00:00"),
-          "capacity":3,
+          "startHour": "2023-10-24T09:00:00.000Z",
+          "endHour": "2023-10-24T11:00:00.000Z",
+          "capacity":27,
+          "localId":1
+        },
+        {
+          "id":12,
+          "name":"FIFA: A arte do rage quit",
+          "date":new Date("2023-10-24 15:32:45.999"),
+          "startHour": "2023-10-24T11:00:00.000Z",
+          "endHour": "2023-10-24T13:00:00.000Z",
+          "capacity":30,
+          "localId":1
+        },
+        {
+          "id":13,
+          "name":"Gerenciamento de Tempo: como trabalhar e jogar",
+          "date":new Date("2023-10-24 15:32:45.999"),
+          "startHour": "2023-10-24T09:00:00.000Z",
+          "endHour": "2023-10-24T12:00:00.000Z",
+          "capacity":15,
+          "localId":2
+        },
+        {
+          "id":14,
+          "name":"Valorant: Balinha chiclete",
+          "date":new Date("2023-10-24 15:32:45.999"),
+          "startHour": "2023-10-24T12:00:00.000Z",
+          "endHour": "2023-10-24T15:00:00.000Z",
+          "capacity":35,
+          "localId":2
+        },
+        {
+          "id":15,
+          "name":"Workshop: Gamificação e Vendas",
+          "date":new Date("2023-10-24 15:32:45.999"),
+          "startHour": "2023-10-24T09:00:00.000Z",
+          "endHour": "2023-10-24T12:00:00.000Z",
+          "capacity":32,
+          "localId":3
+        },
+        {
+          "id":16,
+          "name":"Workshop: do Joystick ao Mouse",
+          "date":new Date("2023-10-24 15:32:45.999"),
+          "startHour": "2023-10-24T12:00:00.000Z",
+          "endHour": "2023-10-24T16:00:00.000Z",
+          "capacity":20,
           "localId":3
         },
       ]
