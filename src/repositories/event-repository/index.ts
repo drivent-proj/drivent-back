@@ -8,7 +8,7 @@ async function findFirst(): Promise<Event> {
     const eventParsed: Event = JSON.parse(event);
     return eventParsed;
   } else {
-    const prismaEvent = prisma.event.findFirst();
+    const prismaEvent = await prisma.event.findFirst();
     if (prismaEvent) {
       await redis.set('event', JSON.stringify(prismaEvent));
     }
