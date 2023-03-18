@@ -16,3 +16,20 @@ export function createBooking({ roomId, userId }: CreateBookingParams) {
   });
 }
 
+export function createFakeBooking(roomId: number) {
+  return [{
+    id: faker.random.numeric(),
+    userId: faker.random.numeric(),
+    roomId,
+    createdAt: faker.date.recent(),
+    updatedAt: faker.date.recent(),
+    Room: {
+      id: roomId,
+      name: faker.random.word(),
+      capacity: faker.random.numeric(),
+      hotelId: faker.random.numeric(),
+      createdAt: faker.date.recent(),
+      updatedAt: faker.date.recent()
+    }
+  }];
+}
