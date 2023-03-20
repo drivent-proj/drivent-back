@@ -12,3 +12,15 @@ export async function listActivities(req: AuthenticatedRequest, res: Response) {
     return res.sendStatus(httpStatus.NOT_FOUND);
   }
 }
+
+export async function SubscribeinActivity(req: AuthenticatedRequest, res: Response) {
+  try {
+    const { userId } = req;
+    const { activityId } = req.body;
+    const subscribed = await activityService.SubscribeinActivity(userId, activityId);
+    return res.sendStatus(httpStatus.OK)
+
+  } catch (error){
+    return res.status(httpStatus.CONFLICT).send(error.message)
+  }
+}

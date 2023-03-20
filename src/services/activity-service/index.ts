@@ -1,6 +1,9 @@
 import activityRepository from "@/repositories/activity-repository";
 import { Activity, Local, SubscribeActivity } from "@prisma/client";
 import { weekdays } from "./weekdays";
+import enrollmentRepository from "@/repositories/enrollment-repository";
+import SubscribeActivityRepository from "@/repositories/subscribeActivity-repository";
+import { TimeConflictError } from "@/errors/TimeConflict-error";
 
 async function getActivities() {
   const activities = await activityRepository.findAllActivities();
@@ -33,8 +36,24 @@ type ActivityGroupByDate = Record<
   { date: string; weekday: string; activies: ActivityWithLocalAndSubscribes[] }
 >;
 
+async function SubscribeinActivity(userId : number , activityId: number){
+  const enrollment = await enrollmentRepository.findWithAddressByUserId(userId);
+  await checkTimeConflict(enrollment.id, activityId)
+  return await SubscribeActivityRepository.SubscribeInActivity(userId, activityId)
+
+}
+
+async function checkTimeConflict(enrollmentId: number, activityId: number) {
+  const userActivities = await SubscribeActivityRepository.findAllUserActivities(enrollmentId);
+  const diseredActivity = await activityRepository.findActivityById(activityId);
+  userActivities.forEach((act) =>  {if((diseredActivity.endHour >= act.Activity.startHour && diseredActivity.endHour <= act.Activity.endHour) || (diseredActivity.startHour >= act.Activity.startHour && diseredActivity.startHour < act.Activity.endHour)) {
+    throw TimeConflictError(act.Activity.name)
+  }})
+}
+
 const activityService = {
   getActivities,
+  SubscribeinActivity
 };
 
 export default activityService;
