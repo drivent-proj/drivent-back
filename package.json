@@ -22,6 +22,7 @@
     "dev:load-envs": "dotenv -e .env.development",
     "dev:migration:run": "npm run dev:load-envs prisma migrate deploy",
     "dev:migration:generate": "npm run dev:load-envs prisma migrate dev",
+    "dev:migration:rollback": "npm run dev:load-envs prisma migrate resolve --rolled-back '20230315175045_try_fixing_num_error'",
     "dev:seed": "npm run dev:load-envs prisma db seed",
     "dev": "cross-env NODE_ENV=development nodemon --watch 'src/' --exec 'ts-node -r tsconfig-paths/register ./src/server.ts' -e ts",
     "prisma:studio": "dotenv -e .env.development npx prisma studio"

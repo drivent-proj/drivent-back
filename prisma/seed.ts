@@ -167,7 +167,7 @@ async function main() {
           "date": new Date("2023-10-22 15:32:45.999"),
           "startHour":"2023-10-22T10:00:00.000Z",
           "endHour":"2023-10-22T11:00:00.000Z",
-          "capacity":3,
+          "capacity":0,
           "localId":1
         },
         {

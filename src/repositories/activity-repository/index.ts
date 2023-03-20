@@ -9,8 +9,21 @@ async function findAllActivities() {
   });
 }
 
+async function findActivityById(activityId: number) {
+  return prisma.activity.findUnique({
+    where: {
+      id : activityId
+    }
+  })
+}
+
+
+
+
+
 const activityRepository = {
   findAllActivities,
+  findActivityById
 };
 
 export default activityRepository;
